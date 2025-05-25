@@ -15,7 +15,7 @@ const CompanionLibrary = async ({ searchParams }: SearchParams) => {
   console.log(companions);
 
   return (
-    <main>
+    <main className="py-8">
       <section className="flex justify-between gap-4 max-sm:flex-col">
         <h1>Companion Library</h1>
         <div className="flex gap-4">

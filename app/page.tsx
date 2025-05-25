@@ -15,7 +15,7 @@ const Page = async () => {
   const recentSessionsCompanions = await getRecentSessions(10);
 
   return (
-    <main>
+    <main className="py-8">
       <h1>Popular Companions</h1>
       <section className="home-section">
         {companions.map((companion) => (

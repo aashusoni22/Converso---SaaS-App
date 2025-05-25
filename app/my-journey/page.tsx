@@ -24,7 +24,7 @@ const Profile = async () => {
   const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
 
   return (
-    <main className="min-lg:w-3/4">
+    <main className="min-lg:w-3/4 py-8">
       {/* Profile Header Section */}
       <section className="rounded-4xl border border-black bg-white p-8 mb-8 shadow-md">
         <div className="flex justify-between gap-8 max-sm:flex-col items-center">
