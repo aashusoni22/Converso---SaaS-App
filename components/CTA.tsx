@@ -5,7 +5,7 @@ import React from "react";
 const CTA = () => {
   return (
     <section className="cta-section">
-      <div className="cta-badge">Start learning your way.</div>
+      <div className="cta-badge">Start learning your way</div>
       <h2 className="text-3xl font-bold">
         Build and Personlize Learning Companion
       </h2>

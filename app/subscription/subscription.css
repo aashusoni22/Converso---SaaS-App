@@ -1,0 +1,138 @@
+/* Custom styles for the subscription page */
+
+/* Add subtle background pattern */
+main {
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(254, 89, 51, 0.05) 2%, transparent 0%), 
+    radial-gradient(circle at 75px 75px, rgba(254, 89, 51, 0.05) 2%, transparent 0%);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.clerk-pricing-table {
+  width: 100%;
+}
+
+/* Override Clerk's default styles to match our app's design */
+.clerk-pricing-table [class*="cl-rootBox"] {
+  width: 100%;
+  max-width: 100%;
+}
+
+.clerk-pricing-table [class*="cl-card"] {
+  border-radius: 1.25rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease;
+}
+
+.clerk-pricing-table [class*="cl-card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.clerk-pricing-table [class*="cl-headerTitle"] {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.clerk-pricing-table [class*="cl-headerSubtitle"] {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: #666;
+}
+
+.clerk-pricing-table [class*="cl-priceAmount"] {
+  color: var(--primary) !important;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+.clerk-pricing-table [class*="cl-pricePeriod"] {
+  color: #666;
+}
+
+.clerk-pricing-table [class*="cl-featuresTitle"] {
+  font-weight: 600;
+}
+
+.clerk-pricing-table [class*="cl-featuresListItem"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.clerk-pricing-table [class*="cl-featuresListItem"]::before {
+  content: "✓";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.clerk-pricing-table [class*="cl-footerAction"] {
+  width: 100%;
+}
+
+.clerk-pricing-table [class*="cl-button"] {
+  background-color: var(--primary) !important;
+  border-radius: 0.75rem !important;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.clerk-pricing-table [class*="cl-button"]:hover {
+  background-color: rgba(254, 89, 51, 0.9) !important;
+  transform: translateY(-2px);
+}
+
+/* Feature card animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid > div {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.grid > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.grid > div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.grid > div:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Hover effect for feature cards */
+.grid > div {
+  transition: all 0.3s ease;
+}
+
+.grid > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clerk-pricing-table [class*="cl-rootBox"] {
+    padding: 0;
+  }
+
+  .clerk-pricing-table [class*="cl-card"] {
+    margin-bottom: 1.5rem;
+  }
+}
