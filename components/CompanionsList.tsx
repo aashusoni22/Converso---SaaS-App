@@ -53,7 +53,9 @@ const CompanionsList = ({
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="font-bold text-2xl">{name}</p>
-                      <p className="text-lg">{topic}</p>
+                      <p className="text-lg">
+                        {topic.length > 50 ? `${topic.slice(0, 50)}...` : topic}
+                      </p>
                     </div>
                   </div>
                 </Link>
@@ -76,7 +78,7 @@ const CompanionsList = ({
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2 w-full justify-end">
-                  <p className="text-2xl">
+                  <p className="text-xl">
                     {duration} <span className="max-md:hidden">mins</span>
                   </p>
                   <Image

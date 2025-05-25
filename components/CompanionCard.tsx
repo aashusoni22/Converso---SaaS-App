@@ -4,6 +4,7 @@ import { addBookmark } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useToast } from "@/lib/hooks/useToast";
 
 interface CompanionCardProps {
   id: string;
@@ -25,11 +26,31 @@ const CompanionCard = ({
   bookmarked,
 }: CompanionCardProps) => {
   const pathname = usePathname();
+  const { toast } = useToast();
+
   const handleBookmark = async () => {
-    if (bookmarked) {
-      await removeBookmark(id, pathname);
-    } else {
-      await addBookmark(id, pathname);
+    try {
+      if (bookmarked) {
+        await removeBookmark(id, pathname);
+        toast({
+          title: "Bookmark removed",
+          description: `${name} has been removed from your bookmarks`,
+          variant: "default",
+        });
+      } else {
+        await addBookmark(id, pathname);
+        toast({
+          title: "Bookmark added",
+          description: `${name} has been added to your bookmarks`,
+          variant: "success",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to update bookmark. Please try again.",
+        variant: "destructive",
+      });
     }
   };
   return (
@@ -49,7 +70,9 @@ const CompanionCard = ({
       </div>
 
       <h2 className="text-2xl font-bold">{name}</h2>
-      <p className="text-sm">{topic}</p>
+      <p className="text-sm">
+        {topic.length > 50 ? topic.slice(0, 50) + "..." : topic}
+      </p>
       <div className="flex items-center gap-2">
         <Image
           src="/icons/clock.svg"
@@ -60,7 +83,17 @@ const CompanionCard = ({
         <p className="text-sm">{duration} minutes</p>
       </div>
 
-      <Link href={`/companions/${id}`} className="w-full">
+      <Link 
+        href={`/companions/${id}`} 
+        className="w-full"
+        onClick={() => {
+          toast({
+            title: "Launching lesson",
+            description: `Preparing ${name} for your learning journey`,
+            variant: "info",
+          });
+        }}
+      >
         <button className="btn-primary w-full justify-center">
           Launch Lesson
         </button>
