@@ -64,8 +64,8 @@ Experience a clean, intuitive interface designed for optimal learning engagement
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/aashusoni22/jsm_saas_app.git
-cd jsm_saas_app
+git clone https://github.com/aashusoni22/Converso-AI-Learning-Platform.git
+cd Converso-AI-Learning-Platform
 ```
 
 ### 2️⃣ Install dependencies
